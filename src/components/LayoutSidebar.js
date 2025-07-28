@@ -55,6 +55,32 @@ const getIconComponent = (id) => {
     ),
   };
 
-  // Return the icon if found, otherwise return null or a default icon
-  return iconMap[id] || null;
+  // Return the icon if found, otherwise return a default fallback icon for better UX
+  // If you want to return null instead, replace the fallback icon with null
+  return iconMap[id] || (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+      <circle cx="10" cy="10" r="8" />
+      <text x="10" y="15" textAnchor="middle" fontSize="10" fill="#fff">?</text>
+    </svg>
+  );
 };
+
+/**
+ * LayoutSidebar is a React component that renders the application's sidebar.
+ * It can be customized to include navigation links, icons, and other sidebar content.
+ *
+ * @component
+ * @returns {JSX.Element} The sidebar layout component.
+ */
+const LayoutSidebar = () => {
+  // Example sidebar content
+  return (
+    <aside>
+      {/* Add your sidebar content here */}
+      Sidebar goes here
+    </aside>
+  );
+};
+
+
+export default LayoutSidebar;
